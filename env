@@ -1,0 +1,7 @@
+MYSQL_DATABASE=your db name
+MYSQL_PASSWORD=your password
+MYSQL_ROOT_PASSWORD=your root password
+MYSQL_USER=your username
+
+MONGO_ROOT_USERNAME=your username
+MONGO_ROOT_PASSWORD=your password
