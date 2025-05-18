@@ -2,14 +2,19 @@ package com.mesutadiguzel.controller;
 
 import com.mesutadiguzel.command.CreateProductCommand;
 import com.mesutadiguzel.request.ProductRequest;
+import jakarta.validation.Valid;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -22,7 +27,14 @@ public class ProductCommandController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createProduct(@RequestBody ProductRequest productRequest) {
+    public ResponseEntity<?> createProduct(@Valid @RequestBody ProductRequest productRequest, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            Map<String, String> errors = new HashMap<>();
+            for (FieldError error : bindingResult.getFieldErrors()) {
+                errors.put(error.getField(), error.getDefaultMessage());
+            }
+            return ResponseEntity.badRequest().body(errors);
+        }
         CreateProductCommand createProductCommand = CreateProductCommand.builder()
                 .productId(UUID.randomUUID().toString())
                 .name(productRequest.getName())

@@ -1,9 +1,6 @@
 package com.mesutadiguzel.request;
 
-import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,6 +14,7 @@ import java.math.BigDecimal;
 @Data
 public class ProductRequest {
     @NotBlank(message = "Product name is required")
+    @Size(min = 2, max = 50, message = "Product name must be between 2 and 50 characters long")
     private String name;
 
     @NotNull(message = "Price is required")
@@ -24,7 +22,7 @@ public class ProductRequest {
     private BigDecimal price;
 
     @NotNull(message = "Stock quantity is required")
-    @Min(value = 0, message = "Stock quantity must be zero or positive")
+    @Min(value = 1, message = "Stock quantity must be at least 1")
     private Integer stockQuantity;
-    
+
 }
