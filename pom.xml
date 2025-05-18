@@ -16,6 +16,9 @@
 
         <module>discovery-server</module>
         <module>api-gateway</module>
+        <module>product-data-access</module>
+        <module>product-core</module>
+        <module>product-command-service</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -66,6 +69,21 @@
             <dependency>
                 <groupId>com.mesutadiguzel</groupId>
                 <artifactId>api-gateway</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mesutadiguzel</groupId>
+                <artifactId>product-data-access</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mesutadiguzel</groupId>
+                <artifactId>product-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mesutadiguzel</groupId>
+                <artifactId>product-command-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
