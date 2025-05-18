@@ -19,6 +19,7 @@
         <module>product-data-access</module>
         <module>product-core</module>
         <module>product-command-service</module>
+        <module>product-query-service</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -84,6 +85,11 @@
             <dependency>
                 <groupId>com.mesutadiguzel</groupId>
                 <artifactId>product-command-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mesutadiguzel</groupId>
+                <artifactId>product-query-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

@@ -7,26 +7,29 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>product-data-access</artifactId>
+    <artifactId>product-query-service</artifactId>
     <packaging>jar</packaging>
 
-    <name>product-data-access</name>
+    <name>product-query-service</name>
+    <url>http://maven.apache.org</url>
 
     <properties>
         <spring-cloud.version>2024.0.1</spring-cloud.version>
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.mesutadiguzel</groupId>
-            <artifactId>product-command-service</artifactId>
+            <groupId>org.axonframework</groupId>
+            <artifactId>axon-spring-boot-starter</artifactId>
+            <version>4.11.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>33.3.1-jre</version>
         </dependency>
         <dependency>
             <groupId>com.mesutadiguzel</groupId>
-            <artifactId>product-query-service</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <artifactId>product-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -35,12 +38,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-            <scope>runtime</scope>
         </dependency>
     </dependencies>
     <dependencyManagement>
